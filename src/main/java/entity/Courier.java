@@ -4,14 +4,14 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
 @Data
 @Table(name = "couriers")
+public
 class Courier {
     @Id
     @GeneratedValue(generator = "GENERATOR_ID")
 
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;

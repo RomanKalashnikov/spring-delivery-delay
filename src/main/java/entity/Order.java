@@ -7,14 +7,13 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
 @Data
 @Table(name = "orders")
-class Order {
+public class Order {
 
     @Id
     @GeneratedValue(generator = "GENERATOR_ID")
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     @OneToOne(cascade = CascadeType.ALL)
