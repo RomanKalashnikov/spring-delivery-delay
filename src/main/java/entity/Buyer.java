@@ -6,14 +6,13 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 
 
-@Entity
 @Data
 @Table(name = "buyers")
-class Buyer {
+public class Buyer {
 
     @Id
     @GeneratedValue(generator = "GENERATOR_ID")
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -26,7 +25,6 @@ class Buyer {
 
     @Column
     private Order order;
-
 
 
 }

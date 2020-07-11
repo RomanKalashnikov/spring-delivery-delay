@@ -15,7 +15,7 @@ public class Operator {
 
     @Id
     @GeneratedValue(generator = "GENERATOR_ID")
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private boolean onLine;
