@@ -3,34 +3,31 @@ package entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 @Data
 @Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(generator = "GENERATOR_ID")
+    @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
     private Long orderNumber;
 
     @Column(nullable = false)
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @PrimaryKeyJoinColumn
     private Buyer buyer;
 
     @JsonFormat(pattern = "HH:mm:ss  dd-MM-yyyy")
     @Column(nullable = false)
-    private LocalDateTime time;
-
-    @JsonFormat(pattern = "HH:mm:ss  dd-MM-yyyy")
-    private LocalDateTime newTimeAdding;
+    private LocalDateTime timeDelivery;
 
     @Column(nullable = false)
-    private Boolean execution;
+    private boolean completed;
 }

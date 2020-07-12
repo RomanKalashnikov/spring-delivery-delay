@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Buyer {
 
     @Id
-    @GeneratedValue(generator = "GENERATOR_ID")
+    @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
