@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "buyers")
-class Buyer {
+public class Buyer {
 
     @Id
     @GeneratedValue(generator = "GENERATOR_ID")

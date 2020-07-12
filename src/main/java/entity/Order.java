@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @Table(name = "orders")
-class Order {
+public class Order {
 
     @Id
     @GeneratedValue(generator = "GENERATOR_ID")
