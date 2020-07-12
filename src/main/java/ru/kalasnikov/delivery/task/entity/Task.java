@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
@@ -16,8 +15,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Task {
 
+    public Task(Long orderNumber, LocalDateTime createTime, boolean completed) {
+        this.orderNumber = orderNumber;
+        this.createTime = createTime;
+        this.completed = completed;
+    }
+
     @Id
-    @GeneratedValue
     private Long id;
 
     @Column

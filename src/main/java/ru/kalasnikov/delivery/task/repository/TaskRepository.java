@@ -1,15 +1,17 @@
 package ru.kalasnikov.delivery.task.repository;
 
-import ru.kalasnikov.delivery.task.entity.Task;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import ru.kalasnikov.delivery.task.entity.Task;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Repository
-public interface TaskRepository extends CrudRepository<Task, Long> {
+public interface TaskRepository  {
     List<Task> findTasksByCreateTimeIsBetweenAndOrderNumber(LocalDateTime start, LocalDateTime end, Long orderNumber);
 
     List<Task> findTasksByCreateTimeIsBetween(LocalDateTime start, LocalDateTime end);
+
+    Task save(Task task);
+
+    Integer resul() ;
 }
