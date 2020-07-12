@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 
 
+@Entity
 @Data
 @Table(name = "buyers")
 public class Buyer {
@@ -22,9 +23,5 @@ public class Buyer {
 
     @Column(nullable = false)
     private String address;
-
-    @Column
-    private Order order;
-
 
 }
