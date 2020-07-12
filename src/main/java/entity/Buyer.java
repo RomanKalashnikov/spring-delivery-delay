@@ -6,12 +6,13 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 
 
+@Entity
 @Data
 @Table(name = "buyers")
 public class Buyer {
 
     @Id
-    @GeneratedValue(generator = "GENERATOR_ID")
+    @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
@@ -22,9 +23,5 @@ public class Buyer {
 
     @Column(nullable = false)
     private String address;
-
-    @Column
-    private Order order;
-
 
 }

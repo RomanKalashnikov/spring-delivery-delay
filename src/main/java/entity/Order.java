@@ -7,30 +7,27 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 @Data
 @Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(generator = "GENERATOR_ID")
+    @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Buyer idOwner;
+    private Long orderNumber;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Column(nullable = false)
+    @OneToOne
     @PrimaryKeyJoinColumn
-    private Courier currentCourier;
+    private Buyer buyer;
 
     @JsonFormat(pattern = "HH:mm:ss  dd-MM-yyyy")
     @Column(nullable = false)
-    private LocalDateTime time;
-
-    @JsonFormat(pattern = "HH:mm:ss  dd-MM-yyyy")
-    private LocalDateTime newTimeAdding;
+    private LocalDateTime timeDelivery;
 
     @Column(nullable = false)
-    private Boolean execution;
+    private boolean completed;
 }
