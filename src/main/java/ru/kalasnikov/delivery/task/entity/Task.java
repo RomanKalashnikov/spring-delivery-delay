@@ -1,12 +1,11 @@
 package ru.kalasnikov.delivery.task.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,12 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Task {
-
-    public Task(Long orderNumber, LocalDateTime createTime, boolean completed) {
-        this.orderNumber = orderNumber;
-        this.createTime = createTime;
-        this.completed = completed;
-    }
+//TODO тестовые данные, необходимо убрать
 
     @Id
     private Long id;
@@ -27,6 +21,7 @@ public class Task {
     @Column
     private Long orderNumber;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(updatable = false)
     private LocalDateTime createTime;
 
