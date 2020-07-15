@@ -28,7 +28,7 @@ H2 или Postgresql <br>
 ○ Spring JdbcTemplate <br>
 ○ MyBatis *<br>
 
-###*Инструкция по старту приложения* <br>
+### *Инструкция по старту приложения*
 В роли БД используется **PostgreSQL**. Для работы с БД **Spring JdbcTemplate**. Для логгирования – **Sl4j**. Для тестов – **jUnit5**. 
 Для маппинга – **MapStruct**, а так же **Lombok**.<br>
 Перед первым запуском необходимо в файле application.yml – указать корректный URL, driverClassName, username и password  для используемой БД.<br>
