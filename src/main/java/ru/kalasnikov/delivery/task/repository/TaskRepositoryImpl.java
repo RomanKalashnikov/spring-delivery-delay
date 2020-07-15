@@ -29,8 +29,6 @@ public class TaskRepositoryImpl implements TaskRepository {
 
 
 
-//    В случае отсутствия созданной таблицы в БД необходимо расскомментировать код и использовать создание с использованием
-//     метода postInit();
     @PostConstruct
     void postInit() {
         try {
@@ -45,7 +43,6 @@ public class TaskRepositoryImpl implements TaskRepository {
             System.out.println(4);
         }
     }
-
 
     @Override
     public List<Task> findTasksByCreateTimeIsBetweenAndOrderNumber(LocalDateTime start, LocalDateTime end, Long orderNumber) {
@@ -79,12 +76,18 @@ public class TaskRepositoryImpl implements TaskRepository {
 
     @Override
     public Task saveNewTaskIntoTable(Task task) {
-        task.setId(idCount.getAndIncrement());
-        int status = getInsertStatusIntoTableTask(task);
+
+        int status = getInsertStatusIntoTableTask(configurateTaskBeforeSave(task));
 
         if (status <= 0) {
             throw new RuntimeException("При добавлении задачи в таблицу возникла ошибка");
         }
+        return task;
+    }
+
+    private Task configurateTaskBeforeSave(Task task) {
+        task.setId(idCount.getAndIncrement());
+        task.setCreateTime(LocalDateTime.now());
         return task;
     }
 

@@ -19,8 +19,8 @@ class TaskServiceTest {
     }
 
     @Test
-    void whenNullParametersOnGetResultExpectEmptyList() {
-        List<TaskDto> result = service.getResultRequestFromTaskTable(null, null, null);
+    void whenParametersOnlyOrderNumberGetResultExpectEmptyList() {
+        List<TaskDto> result = service.getResultRequestFromTaskTable( null, null,7777L) ;
         assertTrue(result.isEmpty());
     }
 }
